@@ -3,3 +3,7 @@
 ################################################################################
 
 /Schedule/Schedule/bin
+/Schedule/Schedule.Android/bin
+/Schedule/Schedule.Android/obj
+/Schedule/Schedule/obj
+/.vs/Schedule/v15
