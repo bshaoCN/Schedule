@@ -76,7 +76,23 @@ namespace Schedule.Models
                 }
             }
         }
-        public double PercentComplete { get; set; }
+
+        private double completePercent;
+        public double CompletePercent
+        {
+            get
+            {
+                return completePercent;
+            }
+            set
+            {
+                if (value != completePercent)
+                {
+                    completePercent = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
         private string description;
         public string Description

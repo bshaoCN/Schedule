@@ -61,6 +61,7 @@
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="27.0.2" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRenders\CustomProgressBarRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,12 +90,10 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Schedule\Schedule.csproj">
-      <Project>{C1FEC178-93A3-4149-994C-DC93E645F72A}</Project>
+      <Project>{6d39453c-0ed6-4c34-bb36-2b68c7b77fc9}</Project>
       <Name>Schedule</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CustomRenders\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

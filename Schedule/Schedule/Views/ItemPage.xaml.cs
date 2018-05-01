@@ -20,7 +20,7 @@ namespace Schedule.Views
                 return new List<Severity>
                 {
                     new Severity(){Text="Low",Color="Green"},
-                    new Severity(){Text="Medium",Color="Yellow"},
+                    new Severity(){Text="Medium",Color="Orange "},
                     new Severity(){Text="High",Color="Red"}
                 };
             }
@@ -40,6 +40,7 @@ namespace Schedule.Views
             InitializeComponent();
             BindingContext = this;
         }
+
         async void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "SaveItem", Item);
@@ -62,10 +63,11 @@ namespace Schedule.Views
             }
             item.EndTime = item.StartTime + new TimeSpan(0, 30, 0);
 
+            item.SeverityID = 2;
             return item;
         }
 
-        void OnSelectedIndexChanged(object sender, SelectedItemChangedEventArgs args)
+        void OnSeveritySelectedIndexChanged(object sender, SelectedItemChangedEventArgs args)
         {
             Picker picker = sender as Picker;
             Item.Color = (picker.SelectedItem as Severity).Color;

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cv="clr-namespace:Schedule.CustomViews"
              xmlns:local="clr-namespace:Schedule"
              x:Class="Schedule.MainPage"
              Title="Main">
@@ -27,20 +28,18 @@
 
                             <Grid Padding="10" HorizontalOptions="Fill">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="3*"/>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="50"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" VerticalOptions="CenterAndExpand"
+                                <Label Grid.Column="0"
                                        Text="{Binding Description}"
-                                       LineBreakMode="NoWrap"
                                        FontSize="Small"/>
-                                <BoxView Grid.Column="1" VerticalOptions="CenterAndExpand"
-                                       BackgroundColor="{Binding Color, Mode=OneWay}"/>
-                                <ProgressBar Grid.Column="2" MinimumHeightRequest="50"
-                                       Progress="{Binding PercentComplete}"/>
-                                <StackLayout Grid.Column="3" HorizontalOptions="Center">
+                                <cv:CustomProgressBar Grid.Column="1" 
+                                                      WidthRequest="100"
+                                                      Color="{Binding Color}"
+                                                      Progress="{Binding CompletePercent}"/>
+                                <StackLayout Grid.Column="2" HorizontalOptions="Center">
                                     <Label Text="{Binding StartTime, StringFormat='{0:hh\\:mm}'}"
                                        LineBreakMode="NoWrap"
                                        FontSize="Small"/>

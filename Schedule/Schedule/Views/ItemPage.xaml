@@ -11,27 +11,38 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="55"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Text="Start Time" FontSize="Medium" VerticalOptions="Center"/>
-                <TimePicker Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Time="{Binding Item.StartTime}" />
-                <Label Grid.Row="1" Grid.Column="0" Text="End Time" FontSize="Medium" VerticalOptions="Center"/>
-                <TimePicker Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Time="{Binding Item.EndTime}" />
-                <Label Grid.Row="2" Grid.Column="0" Text="Severity" FontSize="Medium" VerticalOptions="Center"/>
-                <Picker Grid.Row="2" Grid.Column="1" x:Name="SeveritiesPicker" 
-                    Title="Select severity level."
-                    ItemsSource="{Binding Path=Severities}" 
-                    ItemDisplayBinding="{Binding Text}"
-                    SelectedIndex="{Binding Item.SeverityID}"
-                    SelectedIndexChanged="OnSelectedIndexChanged"/>
-                <BoxView Grid.Row="2" Grid.Column="2" BackgroundColor="{Binding Source={x:Reference SeveritiesPicker}, Path=SelectedItem.Color, Mode=OneWay}" VerticalOptions="Center"/>
+                <Label Grid.Row="0" Grid.Column="0" Text="Start Time" VerticalOptions="Center"/>
+                <TimePicker Grid.Row="0" Grid.Column="1" Time="{Binding Item.StartTime}" />
+                <Label Grid.Row="1" Grid.Column="0" Text="End Time" VerticalOptions="Center"/>
+                <TimePicker Grid.Row="1" Grid.Column="1" Time="{Binding Item.EndTime}" />
+                <Label Grid.Row="2" Grid.Column="0" Text="Severity" VerticalOptions="Center"/>
+                <Picker x:Name="SeverityPicker"
+                        Grid.Row="2" Grid.Column="1"
+                        Title="Select severity level."
+                        ItemsSource="{Binding Path=Severities}" 
+                        ItemDisplayBinding="{Binding Text}"
+                        SelectedIndex="{Binding Path=SeverityID}" 
+                        SelectedIndexChanged="OnSeveritySelectedIndexChanged"/>
+                <BoxView Grid.Row="2" Grid.Column="2" BackgroundColor="{Binding Source={x:Reference SeverityPicker}, Path=SelectedItem.Color, Mode=OneWay}" VerticalOptions="Center"/>
+                <Label Grid.Row="3" Grid.Column="0" 
+                       Text="Complete percent" 
+                       VerticalOptions="Center"/>
+                <Slider x:Name="PercentSlider" 
+                        Grid.Row="3" Grid.Column="1" 
+                        Value="{Binding Item.CompletePercent,Mode=TwoWay}"/>
+                <Label Grid.Row="3" Grid.Column="2" 
+                       Text="{Binding Source={x:Reference PercentSlider}, Path=Value, StringFormat='{0:0%}'}" 
+                       VerticalOptions="Center"/>
             </Grid>
-            <Label Text="Description" FontSize="Medium" VerticalOptions="Center"/>
+            <Label Text="Description" VerticalOptions="Center"/>
             <Editor Text="{Binding Item.Description}" FontSize="Small" Margin="0"/>
         </StackLayout>
 
