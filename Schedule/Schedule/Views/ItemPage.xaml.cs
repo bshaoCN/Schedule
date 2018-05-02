@@ -39,6 +39,7 @@ namespace Schedule.Views
             }
             InitializeComponent();
             BindingContext = this;
+
         }
 
         async void Save_Clicked(object sender, EventArgs e)
@@ -63,7 +64,8 @@ namespace Schedule.Views
             }
             item.EndTime = item.StartTime + new TimeSpan(0, 30, 0);
 
-            item.SeverityID = 2;
+            //item.CompletePercent = 0.1;
+
             return item;
         }
 

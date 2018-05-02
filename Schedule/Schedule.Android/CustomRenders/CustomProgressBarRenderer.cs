@@ -22,7 +22,8 @@ namespace Schedule.Droid.CustomRenders
 
             if (Control != null)
             {
-                Control.ScaleY = 8;
+                Control.ScaleY = 5;
+                SetColor();
             }
         }
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)

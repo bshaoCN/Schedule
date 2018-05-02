@@ -29,7 +29,7 @@
                         Title="Select severity level."
                         ItemsSource="{Binding Path=Severities}" 
                         ItemDisplayBinding="{Binding Text}"
-                        SelectedIndex="{Binding Path=SeverityID}" 
+                        SelectedIndex="{Binding Path=Item.SeverityID}" 
                         SelectedIndexChanged="OnSeveritySelectedIndexChanged"/>
                 <BoxView Grid.Row="2" Grid.Column="2" BackgroundColor="{Binding Source={x:Reference SeverityPicker}, Path=SelectedItem.Color, Mode=OneWay}" VerticalOptions="Center"/>
                 <Label Grid.Row="3" Grid.Column="0" 

@@ -6,6 +6,7 @@
              x:Class="Schedule.MainPage"
              Title="Main">
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="SaveItems_Clicked" />
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
@@ -34,7 +35,8 @@
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0"
                                        Text="{Binding Description}"
-                                       FontSize="Small"/>
+                                       FontSize="Small"
+                                       VerticalOptions="Center"/>
                                 <cv:CustomProgressBar Grid.Column="1" 
                                                       WidthRequest="100"
                                                       Color="{Binding Color}"

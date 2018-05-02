@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using Schedule.ViewModels;
 using Schedule.Views;
 using Schedule.Models;
+using PCLStorage;
 
 namespace Schedule
 {
@@ -40,5 +41,17 @@ namespace Schedule
             MenuItem menuItem = sender as MenuItem;
             await Navigation.PushModalAsync(new NavigationPage(new ItemPage(menuItem.CommandParameter as Item) { Title = "Edit" }));
         }
+
+        async void SaveItems_Clicked(object sender, EventArgs e)
+        {
+            IFolder rootFolder = FileSystem.Current.LocalStorage;
+            IFolder folder = await rootFolder.CreateFolderAsync("MySubFolder",
+                CreationCollisionOption.OpenIfExists);
+            IFile file = await folder.CreateFileAsync("answer.txt",
+                CreationCollisionOption.ReplaceExisting);
+            await file.WriteAllTextAsync("42");
+
+        }
+
     }
 }
