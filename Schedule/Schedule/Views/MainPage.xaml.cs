@@ -7,7 +7,6 @@ using Xamarin.Forms;
 using Schedule.ViewModels;
 using Schedule.Views;
 using Schedule.Models;
-using PCLStorage;
 
 namespace Schedule
 {
@@ -22,12 +21,6 @@ namespace Schedule
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            //var item = args.SelectedItem as Item;
-            //if (item == null)
-            //    return;
-
-            // await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
-
             // Manually deselect item.
             ItemsListView.SelectedItem = null;
         }
@@ -42,16 +35,11 @@ namespace Schedule
             await Navigation.PushModalAsync(new NavigationPage(new ItemPage(menuItem.CommandParameter as Item) { Title = "Edit" }));
         }
 
-        async void SaveItems_Clicked(object sender, EventArgs e)
-        {
-            IFolder rootFolder = FileSystem.Current.LocalStorage;
-            IFolder folder = await rootFolder.CreateFolderAsync("MySubFolder",
-                CreationCollisionOption.OpenIfExists);
-            IFile file = await folder.CreateFileAsync("answer.txt",
-                CreationCollisionOption.ReplaceExisting);
-            await file.WriteAllTextAsync("42");
+        //void SaveItems_Clicked(object sender, EventArgs e)
+        //{
 
-        }
+
+        //}
 
     }
 }

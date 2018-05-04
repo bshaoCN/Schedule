@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:visibility="visible"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/icon"
+                android:layout_marginTop="0dp" />
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/flyout"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:visibility="gone"
+            android:layout_marginBottom="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="8dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="#FF0026FF"
+                android:layout_marginRight="32dp"
+                android:layout_height="50dp">
+                <TextView
+                    android:id="@+id/txtMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:text="Hello"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:maxWidth="240dp" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="32dp"
+                android:background="#FF0094FF"
+                android:layout_height="50dp">
+                <TextView
+                    android:id="@+id/txtMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:text="Hi!"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:maxWidth="240dp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

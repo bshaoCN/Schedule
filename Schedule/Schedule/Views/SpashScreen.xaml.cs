@@ -20,9 +20,14 @@ namespace Schedule
         {
             base.OnAppearing();
 
-            //var rootPage = Navigation.NavigationStack[0];
-            //if (typeof(MainPage) == rootPage.GetType()) return;
-            //Navigation.RemovePage(rootPage);
+            DelayedNaviagition();
+           
+        }
+
+        async private void DelayedNaviagition()
+        {
+            await Task.Delay(5000);
+            await Navigation.PushAsync(new MainPage());
         }
     }
 }

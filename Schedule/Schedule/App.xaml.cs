@@ -9,11 +9,12 @@ namespace Schedule
 {
     public partial class App : Application
     {
+        public static Size ScreenSize;
+
         public App()
         {
             InitializeComponent();
 
-            //MainPage = new Schedule.MainPage();
             MainPage = new NavigationPage(new Schedule.MainPage());
         }
 

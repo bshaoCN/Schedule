@@ -6,13 +6,13 @@
              x:Class="Schedule.MainPage"
              Title="Main">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save" Clicked="SaveItems_Clicked" />
+        <!--<ToolbarItem Text="Save" Clicked="SaveItems_Clicked" />-->
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="ItemsListView"
-                       ItemsSource="{Binding Items,Mode=TwoWay}"
+                       ItemsSource="{Binding Items, Mode=TwoWay}"
                        VerticalOptions="FillAndExpand"
                        HasUnevenRows="true"
                        ItemSelected="OnItemSelected">
